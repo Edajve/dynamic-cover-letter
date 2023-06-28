@@ -1,49 +1,32 @@
 const { writeFile } = require('fs')
-const coverMaker = require('./cover-creator')
+const coverLetter = require('./cover-creator')
 const { localSecrets } = require('./secrets/ppi')
-
-const formatDate = () => {
-    const months = [
-        'January', 'February', 'March', 'April', 'May', 'June',
-        'July', 'August', 'September', 'October', 'November', 'December'
-      ];
-      
-      const today = new Date();
-      const monthIndex = today.getMonth();
-      const monthName = months[monthIndex];
-      
-      const day = String(today.getDate()).padStart(2, '0');
-      const year = String(today.getFullYear());
-      
-     return `${monthName} ${day}, ${year}`;
-}
+const formatDate = require('./helpers')
 
 const template = {
+    companyName: "Chess.com",
+    positionTitle: "Quality Specialist (Mobile)",
+    recipientsJobTitle: "HR Department",
     fullName: "Dajve Echols",
     address: localSecrets.address,
     state: localSecrets.state,
     city: localSecrets.city,
     zipCode: localSecrets.zipCode,
     phoneNum: "708-996-2138",
+    linkedIn: "https://www.linkedin.com/in/dajve-echols-a329a1209/",
     date: formatDate(),
-    recipientsJobTitle: "null",
-    companyName: "null",
-    companyAddress: "null",
-    companyCity: "null",
-    companyState: "null",
-    companyZip: "null",
-    recipientsName: "null",
-    positionTitle: "null",
-    relevantSkills: [],
-    specificAspectThatCaughtAttention: "null",
-    additionalSkills: "null",
+    companyAddress: "",
+    companyCity: "",
+    companyState: "",
+    companyZip: "",
+    recipientsName: "To whom this may concern",
     emailAddress: "dajvelechols@gmail.com",
     github: "https://github.com/Edajve"
 }
 
 const filePath = 'cover_letter.txt'
 
-writeFile(filePath, coverMaker(template), (err, result) => {
+writeFile(filePath, coverLetter(template), (err, result) => {
     if (err) return `Error: ${err.message}`
     console.log("Written successfully..")
 })
