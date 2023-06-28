@@ -1,10 +1,9 @@
-const { readFile, writeFile } = require('fs')
+const { writeFile } = require('fs')
+const { coverMaker } = require('./cover-creator')
 
 const filePath = 'cover_letter.txt'
 
-writeFile(filePath, `Test`, (err, result) => {
+writeFile(filePath, coverMaker, (err, result) => {
     if (err) return `Error: ${err.message}`
-    console.log(result)
+    console.log("Written successfully..")
 })
-
-

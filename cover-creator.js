@@ -1,4 +1,6 @@
-Test here[Your Name]
+const coverMaker = () => {
+    const coverLetterTemplate = 
+`Test here[Your Name]
 [Your Address]
 [City, State, ZIP Code]
 [Email Address]
@@ -41,4 +43,9 @@ Thank you for your time and consideration.
 
 Sincerely,
 
-[Your Name]
+[Your Name]`
+
+return coverLetterTemplate;
+}
+
+module.exports = { coverMaker: coverMaker() }
