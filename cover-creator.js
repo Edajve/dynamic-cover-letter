@@ -1,51 +1,54 @@
-const coverMaker = () => {
+const coverMaker = templates => {
     const coverLetterTemplate = 
-`Test here[Your Name]
-[Your Address]
-[City, State, ZIP Code]
-[Email Address]
-[Phone Number]
-[Date]
+`${templates.fullName}
+${templates.address}
+${templates.city}, ${templates.state}, ${templates.zipCode}
+${templates.emailAddress}
+${templates.phoneNum}
+${templates.date}
+${templates.github}
 
-[Recipient's Job Title]
-[Company Name]
-[Company Address]
-[City, State, ZIP Code]
+${templates.recipientsJobTitle}
+${templates.companyName}
+${templates.companyAddress}
+${templates.companyCity}, ${templates.companyState}, ${templates.companyZip}
 
-Dear [Recipient's Name],
+Dear ${templates.recipientsName},
+  
+I am writing to express my keen interest in the ${templates.positionTitle} at ${templates.companyName}.
+With a strong background in quality assurance and technical expertise in software development,
+I am confident that my skills and dedication will greatly contribute to the success of your team.
 
-    I am writing to express my sincere interest in the [Position Title] at [Company Name].
-I firmly believe that my skills and experience closely align with the requirements
-of the role, and I am excited about the possibility of joining your team.
+As a Quality Engineer, I have consistently demonstrated my ability to ensure the delivery of
+high-quality software solutions. I possess a deep understanding of testing methodologies and
+have successfully designed and executed comprehensive test strategies. Additionally,
+my technical proficiency allows me to develop efficient test automation frameworks
+for web and mobile applications, back-end micro-service applications APIs and database,
+as well as contribute to the improvement of tooling and processes. Through regular engagement in side projects,
+I actively seek opportunities to enhance my knowledge and stay up to date with industry trends.
 
-After carefully reviewing the job description, I am confident that my qualifications
-make me well-suited for the [Position Title]. With [relevant skills or experience], I
-possess the necessary expertise to excel in this position. The values and mission of
-[Company Name] resonate deeply with me, and I am eager to contribute my passion
-and dedication to the organization's success.
+I am convinced that I will add significant value to your team. My strong analytical and problem-solving abilities,
+combined with my attention to detail, enable me to identify and address potential software defects efficiently.
+I thrive in collaborative environments and have successfully worked with cross-functional teams to lead and drive quality
+initiatives and foster continuous improvement.
 
-Additionally, I have been impressed by [Company Name]'s [mention specific aspect
-or quality that has caught your attention]. This further reinforces my belief that
-[Company Name] would be an ideal fit for my professional aspirations. I am
-genuinely enthusiastic about the opportunity to contribute to the continued growth
-and achievements of the company.
+I am particularly drawn to ${templates.companyName} for its culture of innovation and the exciting
+projects the team is working on. The emphasis on pushing boundaries and creating cutting-edge
+solutions resonates with my own aspirations. I am eager to contribute to a company that values
+creativity, teamwork, and a commitment to excellence.
 
-I would also like to highlight [mention an additional point that showcases your
-relevant skills, experience, or achievements]. [This could include a specific 
-accomplishment, relevant project, or any unique attribute that sets you apart.]
-
-Thank you for considering my application. I have attached my resume for your
-review. I am available at your convenience to discuss how my qualifications align with
-the requirements of the [Position Title]. Please feel free to reach me via [Phone Number]
-or [Email Address].
-
-Thank you for your time and consideration.
+Thank you for considering my application. I would welcome the chance to
+discuss in further detail how my qualifications and experience align with
+the requirements of the ${templates.positionTitle} role at ${templates.companyName}. I have
+attached my resume for your review, or you can reach me at ${templates.emailAddress} or ${templates.phoneNum}.
+I look forward to the possibility
+of contributing to your team's success.
 
 Sincerely,
 
-[Your Name]`
+${templates.fullName}`
 
 return coverLetterTemplate;
 }
 
-module.exports = { coverMaker: coverMaker() }
+module.exports = coverMaker;
