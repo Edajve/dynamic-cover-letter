@@ -4,8 +4,8 @@ const { localSecrets } = require('./secrets/ppi')
 const formatDate = require('./helpers')
 
 const template = {
-    companyName: "Chess.com",
-    positionTitle: "Quality Specialist (Mobile)",
+    companyName: "test",
+    positionTitle: "tester tester",
     recipientsJobTitle: "HR Department",
     fullName: "Dajve Echols",
     address: localSecrets.address,
@@ -30,5 +30,3 @@ writeFile(filePath, coverLetter(template), (err, result) => {
     if (err) return `Error: ${err.message}`
     console.log("Written successfully..")
 })
-
-console.log(localSecrets.pass)

@@ -8,14 +8,9 @@ ${templates.phoneNum}
 ${templates.date}
 ${templates.github}
 
-${templates.recipientsJobTitle}
-${templates.companyName}
-${templates.companyAddress}
-${templates.companyCity}, ${templates.companyState}, ${templates.companyZip}
-
 Dear ${templates.recipientsName},
   
-I am writing to express my keen interest in the ${templates.positionTitle} at ${templates.companyName}.
+    I am writing to express my keen interest in the ${templates.positionTitle} at ${templates.companyName}.
 With a strong background in quality assurance and technical expertise in software development,
 I am confident that my skills and dedication will greatly contribute to the success of your team.
 
