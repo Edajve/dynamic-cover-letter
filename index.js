@@ -15,10 +15,6 @@ const template = {
     phoneNum: "708-996-2138",
     linkedIn: "https://www.linkedin.com/in/dajve-echols-a329a1209/",
     date: formatDate(),
-    companyAddress: "",
-    companyCity: "",
-    companyState: "",
-    companyZip: "",
     recipientsName: "To whom this may concern",
     emailAddress: "dajvelechols@gmail.com",
     github: "https://github.com/Edajve"
