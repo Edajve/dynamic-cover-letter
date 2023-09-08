@@ -58,17 +58,13 @@ const alreadyApplied = async companyApplying => {
     return isAlreadyAppliedFor;
 };
 
-const writeAndSaveCoverLetter = async (
-    excelPaths,
-    text,
-    companyName
-) => {
+const writeAndSaveCoverLetter = async (excelPaths,text,companyName) => {
     if (await alreadyApplied(companyName)){
         console.log("Company was already applied for")
     } else {
         await writeToAFile(excelPaths.TXT_DIR, text)
         await copyFromTextToDocxDir(excelPaths, companyName)
-        updateDB()
+        updateDB(companyName)
     }    
 }
 

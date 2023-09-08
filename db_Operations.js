@@ -1,31 +1,37 @@
+const { formatDate } = require('./helpers')
 
+const updateDB = async (nameOfCompany) => {
+  const dbPath = "./DB.txt";
 
-const updateDB = async () => {
-  console.log("works")
-    /*
-        {
-  "today": "September 07, 2023",
-  "dailyStats": {
-    "applicationAmount": 4,
-    "applications": [
-      "application one",
-      "application two"
-    ]
+  try {
+    const response = await readFile(dbPath, 'utf-8');
+    const json = JSON.parse(response);
+
+    const todaysDate = formatDate();
+    const companies = json.applications;
+
+    if (json.today === todaysDate) {
+      companies.push(nameOfCompany);
+      json.dailyStats.applicationAmount = companies.length;
+    } else {
+      const newObject = {
+        today: todaysDate,
+        dailyStats: {
+          applicationAmount: 1,
+          applications: []
+        }
+      };
+      newObject.dailyStats.applicationAmount.push(nameOfCompany)
+      data.push(newObject);
+    }
+
+    const updatedJsonData = JSON.stringify(json, null, 2);
+
+    await writeFile(dbPath, updatedJsonData);
+    console.log('Database updated successfully.');
+  } catch (err) {
+    console.error(err.message);
   }
-}
-    */
-    const dbPath = "./DB.txt";
-        //write to DB
-    //await writeToExcel(dbPath, "hello")
-        //read from DB
-    // const json = readFile(dbPath, 'utf-8')
-    // .then(textFile => console.log(JSON.parse(textFile)))
-    //     .catch(err => console.log(err.message))
-
-    
-        //grap the date property
-        //if the date property looks different
-            //its a new day so add another new template object to the db
-}
+};
 
 module.exports = { updateDB }
