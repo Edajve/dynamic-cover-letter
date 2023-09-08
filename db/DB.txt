@@ -1,31 +1,41 @@
 [
   {
-    "today": "September 07, 2023",
+    "today": "September 06, 2023",
     "dailyStats": {
-      "applicationAmount": 2,
+      "applicationAmount": 11,
       "applications": [
-        "application one",
-        "application two"
+        "Kin Insurances",
+        "Mindlance",
+        "My Valley Jobs",
+        "Netskope",
+        "Queen Consulting Group",
+        "Sage Sure",
+        "Symphony Corporation",
+        "The Aspen Group",
+        "TherapyNotes",
+        "USG Digital",
+        "Vivid Seat"
       ]
     }
   },
   {
     "today": "September 07, 2023",
     "dailyStats": {
-      "applicationAmount": 3,
+      "applicationAmount": 13,
       "applications": [
-        "%TEijiofsiIJOIJOsjpijoihn",
-        "%Gangefdr",
-        "%Gangvsvsefdr"
-      ]
-    }
-  },
-  {
-    "today": "September 08, 2023",
-    "dailyStats": {
-      "applicationAmount": 1,
-      "applications": [
-        "%Gangvsvsdfafsefdr"
+        "PNC Bank",
+        "Allyn Corporation",
+        "Aquent Talent",
+        "Blue Cross Blue Shield",
+        "Booz Allen Hamilton",
+        "Cognizant",
+        "Comcast",
+        "Drift Net",
+        "First American Digital",
+        "FloQast",
+        "Forbes Technical Consulting",
+        "Grindr",
+        "Igen System"
       ]
     }
   }
