@@ -64,7 +64,7 @@ const writeAndSaveCoverLetter = async (excelPaths,text,companyName) => {
     } else {
         await writeToAFile(excelPaths.TXT_DIR, text)
         await copyFromTextToDocxDir(excelPaths, companyName)
-        updateDB(companyName)
+        await updateDB(companyName)
     }    
 }
 

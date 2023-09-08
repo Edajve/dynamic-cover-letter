@@ -4,7 +4,7 @@ const formatDate = require('./helpers')
 const { writeAndSaveCoverLetter } = require('./file_operations');
 
 const template = {
-    companyName: "%TESTTTerrnhhooipjpofioidn",
+    companyName: "%Gangvsvsdfafsefdr",
     positionTitle: "cheater",
     recipientsJobTitle: "HR Department",
     fullName: "Dajve Echols",
@@ -26,4 +26,6 @@ const excelPaths = {
 }
 
 let text = coverMaker(template);
-writeAndSaveCoverLetter( excelPaths, text, template.companyName );
+writeAndSaveCoverLetter(excelPaths, text, template.companyName);
+
+module.exports = { template }
