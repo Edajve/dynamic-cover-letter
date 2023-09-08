@@ -1,0 +1,32 @@
+[
+  {
+    "today": "September 07, 2023",
+    "dailyStats": {
+      "applicationAmount": 2,
+      "applications": [
+        "application one",
+        "application two"
+      ]
+    }
+  },
+  {
+    "today": "September 07, 2023",
+    "dailyStats": {
+      "applicationAmount": 3,
+      "applications": [
+        "%TEijiofsiIJOIJOsjpijoihn",
+        "%Gangefdr",
+        "%Gangvsvsefdr"
+      ]
+    }
+  },
+  {
+    "today": "September 08, 2023",
+    "dailyStats": {
+      "applicationAmount": 1,
+      "applications": [
+        "%Gangvsvsdfafsefdr"
+      ]
+    }
+  }
+]
