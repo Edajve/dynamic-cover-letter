@@ -1,10 +1,10 @@
-const coverMaker = require('./cover-creator')
+const coverMaker = require('./cover_creator')
 const { localSecrets } = require('./secrets/ppi')
 const formatDate = require('./helpers')
-const { writeAndSaveCoverLetter } = require('./excel_operations');
+const { writeAndSaveCoverLetter } = require('./file_operations');
 
 const template = {
-    companyName: "%TESTTT",
+    companyName: "%TESTTTerrnhhooipjpofioidn",
     positionTitle: "cheater",
     recipientsJobTitle: "HR Department",
     fullName: "Dajve Echols",
@@ -14,7 +14,7 @@ const template = {
     zipCode: localSecrets.zipCode,
     phoneNum: "708-996-2138",
     linkedIn: "https://www.linkedin.com/in/dajve-echols-a329a1209/",
-    date: formatDate,
+    date: formatDate, //FIX THIS BUG RIGHT HERE!!!
     recipientsName: "To whom this may concern",
     emailAddress: "dajvelechols@gmail.com",
     github: "https://github.com/Edajve"

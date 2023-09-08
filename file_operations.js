@@ -1,8 +1,9 @@
 const { writeFile, readFile } = require('fs').promises
 const { createWriteStream, readdir } = require('fs')
 const officegen = require('officegen');
+const { updateDB } = require('./db_Operations')
 
-const writeToExcel = async (path, template) => {
+const writeToAFile = async (path, template) => {
     try {
         await writeFile(path, template)
     } catch (error) {
@@ -21,20 +22,12 @@ const saveAsDocx = (text, pathObject, companyName) => {
      const outputStream = createWriteStream(outputPath);
      docx.generate(outputStream);
      outputStream.on('close', function() {
-        console.log('Output file saved successfully.');
+        console.log('File saved successfully.');
      });
 }
 
-// const copyFromTextToDocxDir = (textFileDir, docxDirectoryPath, companyName ) => {
-//     readFile(textFileDir, 'utf-8')
-//     .then(textFile => {
-//         saveAsDocx(textFile, docxDirectoryPath, companyName)
-//     })
-//     .catch(err => console.log(err.message)) 
-// }
-
 const copyFromTextToDocxDir = (excelPaths, companyName ) => {
-    readFile( excelPaths.TXT_DIR, 'utf-8')
+    readFile(excelPaths.TXT_DIR, 'utf-8')
     .then(textFile => {
         saveAsDocx(textFile, excelPaths.DOCX_DIR, companyName)
     })
@@ -65,16 +58,6 @@ const alreadyApplied = async companyApplying => {
     return isAlreadyAppliedFor;
 };
 
-const updateDB = async () => {
-    const dbPath = "./DB.js";
-    //write to DB
-    //await writeToExcel(dbPath, "hello")
-    //read from DB
-    const json = readFile(dbPath, 'utf-8')
-    .then(textFile => console.log(textFile))
-        .catch(err => console.log(err.message)) 
-}
-
 const writeAndSaveCoverLetter = async (
     excelPaths,
     text,
@@ -83,8 +66,9 @@ const writeAndSaveCoverLetter = async (
     if (await alreadyApplied(companyName)){
         console.log("Company was already applied for")
     } else {
-        await writeToExcel(excelPaths.TXT_DIR, text)
+        await writeToAFile(excelPaths.TXT_DIR, text)
         await copyFromTextToDocxDir(excelPaths, companyName)
+        updateDB()
     }    
 }
 
