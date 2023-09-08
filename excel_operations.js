@@ -10,14 +10,14 @@ const writeToExcel = async (path, template) => {
     }
 }
 
-const saveAsDocx = (text, fileToSave, companyName) => {
+const saveAsDocx = (text, pathObject, companyName) => {
      const docx = officegen('docx');
 
      const paragraph = docx.createP();
      paragraph.addText(text);
  
      const fileName = `${companyName}-cover-letter.docx`;
-     const outputPath = `${fileToSave}/${fileName}`;
+     const outputPath = `${pathObject.DOCX_DIR}/${fileName}`;
      const outputStream = createWriteStream(outputPath);
      docx.generate(outputStream);
      outputStream.on('close', function() {
@@ -41,7 +41,7 @@ const copyFromTextToDocxDir = (excelPaths, companyName ) => {
     .catch(err => console.log(err.message)) 
 }
 
-const alreadyApplied = async (companyApplying) => {
+const alreadyApplied = async companyApplying => {
     const directory = "./allTxt";
     let isAlreadyAppliedFor = false;
 
@@ -64,6 +64,16 @@ const alreadyApplied = async (companyApplying) => {
 
     return isAlreadyAppliedFor;
 };
+
+const updateDB = async () => {
+    const dbPath = "./DB.js";
+    //write to DB
+    //await writeToExcel(dbPath, "hello")
+    //read from DB
+    const json = readFile(dbPath, 'utf-8')
+    .then(textFile => console.log(textFile))
+        .catch(err => console.log(err.message)) 
+}
 
 const writeAndSaveCoverLetter = async (
     excelPaths,

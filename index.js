@@ -4,7 +4,7 @@ const formatDate = require('./helpers')
 const { writeAndSaveCoverLetter } = require('./excel_operations');
 
 const template = {
-    companyName: "%%Gucci",
+    companyName: "%TESTTT",
     positionTitle: "cheater",
     recipientsJobTitle: "HR Department",
     fullName: "Dajve Echols",
