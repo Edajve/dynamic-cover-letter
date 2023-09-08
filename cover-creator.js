@@ -27,10 +27,11 @@ combined with my attention to detail, enable me to identify and address potentia
 I thrive in collaborative environments and have successfully worked with cross-functional teams to lead and drive quality
 initiatives and foster continuous improvement.
 
-I am particularly drawn to ${templates.companyName} for its culture of innovation and the exciting
-projects the team is working on. The emphasis on pushing boundaries and creating cutting-edge
-solutions resonates with my own aspirations. I am eager to contribute to a company that values
-creativity, teamwork, and a commitment to excellence.
+If any questions or want to see any of my tangible skills please check out my Github which is in the above portion
+of the page. There I have full automation frameworks,from front end web and mobile Projects, for API intergration testing.
+To CI build scripts using bash for deploying automation scrips. Or just plain programming skills where I program full stack apps
+and test the applications by building a automation framework using Java, C#, Javascript, or TypeScript.
+I am constantly learning so this Github is actively being comitted to. 
 
 Thank you for considering my application. I would welcome the chance to
 discuss in further detail how my qualifications and experience align with

@@ -2,15 +2,15 @@ const { writeFile, readFile } = require('fs').promises
 const { createWriteStream, readdir } = require('fs')
 const officegen = require('officegen');
 
-const writeToExcel = async (path, coverFunc, template) => {
+const writeToExcel = async (path, template) => {
     try {
-        await writeFile(path, coverFunc(template))
+        await writeFile(path, template)
     } catch (error) {
         console.log(error)
     }
 }
 
-const saveDocument = (text, fileToSave, companyName) => {
+const saveAsDocx = (text, fileToSave, companyName) => {
      const docx = officegen('docx');
 
      const paragraph = docx.createP();
@@ -25,10 +25,18 @@ const saveDocument = (text, fileToSave, companyName) => {
      });
 }
 
-const readAndSaveDocxFile = (theFilePath, outputDirectory, companyName ) => {
-    readFile(theFilePath, 'utf-8')
-    .then(result => {
-        saveDocument(result, outputDirectory, companyName)
+// const copyFromTextToDocxDir = (textFileDir, docxDirectoryPath, companyName ) => {
+//     readFile(textFileDir, 'utf-8')
+//     .then(textFile => {
+//         saveAsDocx(textFile, docxDirectoryPath, companyName)
+//     })
+//     .catch(err => console.log(err.message)) 
+// }
+
+const copyFromTextToDocxDir = (excelPaths, companyName ) => {
+    readFile( excelPaths.TXT_DIR, 'utf-8')
+    .then(textFile => {
+        saveAsDocx(textFile, excelPaths.DOCX_DIR, companyName)
     })
     .catch(err => console.log(err.message)) 
 }
@@ -47,7 +55,7 @@ const alreadyApplied = async (companyApplying) => {
 
         for (let i = 0; i < files.length; i++) {
             const existingCompany = files[i].split(".")[0].split("_")[0];
-            if (existingCompany === companyApplying) {
+            if (existingCompany.toLowerCase() === companyApplying.toLowerCase()) {
                 isAlreadyAppliedFor = true;
                 break;
             }
@@ -58,17 +66,15 @@ const alreadyApplied = async (companyApplying) => {
 };
 
 const writeAndSaveCoverLetter = async (
-    textFilePath,
-    coverLetterFunc,
-    template,
-    saveDirectory,
+    excelPaths,
+    text,
     companyName
 ) => {
     if (await alreadyApplied(companyName)){
         console.log("Company was already applied for")
     } else {
-        await writeToExcel(textFilePath, coverLetterFunc, template)
-        await readAndSaveDocxFile(textFilePath, saveDirectory, companyName)
+        await writeToExcel(excelPaths.TXT_DIR, text)
+        await copyFromTextToDocxDir(excelPaths, companyName)
     }    
 }
 

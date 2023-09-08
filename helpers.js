@@ -1,3 +1,4 @@
+
 const formatDate = () => {
     const months = [
         'January', 'February', 'March', 'April', 'May', 'June',
@@ -14,4 +15,6 @@ const formatDate = () => {
      return `${monthName} ${day}, ${year}`;
 }
 
-module.exports = formatDate;
+module.exports = {
+  formatDate
+};
