@@ -4,7 +4,6 @@ const fs = require('fs');
 const updateDB = async (nameOfCompany) => {
   const dbPath = "/Users/dajveechols/remoteSrc/node.js/dynamic-cover-letter/db/DB.txt";
 
-
   try {
     const json = await fs.promises.readFile(dbPath, 'utf-8');
     const dbJson = JSON.parse(json);
@@ -16,8 +15,8 @@ const updateDB = async (nameOfCompany) => {
   
 
     if (latestDbDate === todaysDate) {
-      companies.push(nameOfCompany); // Use push without reassigning
-      dbJson[length].dailyStats.applicationAmount = companies.length; //this is not being updated
+      companies.push(nameOfCompany);
+      dbJson[length].dailyStats.applicationAmount = companies.length;
     } else {
       const newObject = {
         today: todaysDate,

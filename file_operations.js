@@ -54,25 +54,6 @@ const alreadyApplied = async companyApplying => {
                 break;
             }
         }
-
-        const arr = []
-        //delete after youre done
-        for (let index = 0; index < files.length; index++) {
-            //const element = files[index].split(".")[0].split("_")[0];
-            const element = files[index].split(".")[0].split("_")[0];
-            arr.push(element)
-        }
-
-        console.log(arr)
-
-        // const arr2 = []
-        // //delete after youre done
-        // for (let ww = 0; ww < files.length; ww++) {
-        //     //const element = files[ww].split(".")[0].split("_")[0];
-        //     const element = files[ww]
-        //     arr2.push(element)
-        // }
-        // console.log(arr2)
         
     } catch (err) {console.error('Error reading directory:', err);}
 
