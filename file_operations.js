@@ -1,7 +1,7 @@
 const { writeFile, readFile } = require('fs').promises
 const { createWriteStream, readdir } = require('fs')
 const officegen = require('officegen');
-const { updateDB } = require('./db_Operations')
+const { updateDB, getOccurrence } = require('./db_Operations')
 
 const writeToAFile = async (path, template) => {
     try {
@@ -21,6 +21,7 @@ const saveAsDocx = (text, pathObject, companyName) => {
      const fileName = `${companyName}-cover-letter.docx`;
      const outputPath = `${pathObject.DOCX_DIR}/${fileName}`;
      const outputStream = createWriteStream(outputPath);
+
      docx.generate(outputStream);
      outputStream.on('close', function() {
         console.log('File saved successfully.');
@@ -60,13 +61,14 @@ const alreadyApplied = async companyApplying => {
     return isAlreadyAppliedFor;
 };
 
-const writeAndSaveCoverLetter = async (excelPaths,text,companyName) => {
+const writeAndSaveCoverLetter = async (excelPaths, text, companyName) => {
     if (await alreadyApplied(companyName)){
         console.log("Company was already applied for")
     } else {
         await writeToAFile(excelPaths.TXT_DIR, text)
         //await copyFromTextToDocxDir(excelPaths, companyName)
         await updateDB(companyName)
+        getOccurrence()
     }    
 }
 

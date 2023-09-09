@@ -15,6 +15,4 @@ const formatDate = () => {
      return `${monthName} ${day}, ${year}`;
 }
 
-module.exports = {
-  formatDate
-};
+module.exports = { formatDate }
