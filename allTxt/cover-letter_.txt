@@ -1,14 +1,14 @@
 Dajve Echols
 4280 W 187th Place
-Country Club Hills, Ilinois, 60478
+Country Club Hills, Illinois, 60478
 dajvelechols@gmail.com
 708-996-2138
-[object Object]
+September 08, 2023
 https://github.com/Edajve
 
 Dear To whom this may concern,
   
-    I am writing to express my strong interest in the cheater position at %new.
+    I am writing to express my strong interest in the cheater position at %Semantic.
 With a strong background in quality assurance and technical expertise in software development,
 I am confident that my skills and dedication will greatly contribute to the success of your team.
 
@@ -33,7 +33,7 @@ I am constantly learning so this Github is actively being comitted to.
 
 Thank you for considering my application. I would welcome the chance to
 discuss in further detail how my qualifications and experience align with
-the requirements of the cheater role at %new. I have
+the requirements of the cheater role at %Semantic. I have
 attached my resume for your review, or you can reach me at dajvelechols@gmail.com or 708-996-2138.
 I look forward to the possibility
 of contributing to your team's success.

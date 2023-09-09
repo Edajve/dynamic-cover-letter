@@ -38,5 +38,15 @@
         "Igen System"
       ]
     }
+  },
+  {
+    "today": "September 08, 2023",
+    "dailyStats": {
+      "applicationAmount": 2,
+      "applications": [
+        "%new",
+        "%Semantic"
+      ]
+    }
   }
 ]

@@ -1,15 +1,11 @@
 const { writeFile, readFile } = require('fs').promises
 const { createWriteStream, readdir } = require('fs')
 const officegen = require('officegen');
-const { updateDB, getOccurrence } = require('./db_Operations')
+const { addApplicationToDB, printOccurence } = require('./db_Operations')
 
-const writeToAFile = async (path, template) => {
-    try {
-        await writeFile(path, template)
-        console.log('File saved successfully.');
-    } catch (error) {
-        console.log(error)
-    }
+const writeToATxtFile = async (path, template) => {
+    try { await writeFile(path, template) }
+    catch (error) {console.log(error) }
 }
 
 const saveAsDocx = (text, pathObject, companyName) => {
@@ -19,16 +15,16 @@ const saveAsDocx = (text, pathObject, companyName) => {
      paragraph.addText(text);
  
      const fileName = `${companyName}-cover-letter.docx`;
-     const outputPath = `${pathObject.DOCX_DIR}/${fileName}`;
+     const outputPath = `/Users/dajveechols/remoteSrc/node.js/dynamic-cover-letter/docxFiles/${fileName}`;
      const outputStream = createWriteStream(outputPath);
 
      docx.generate(outputStream);
      outputStream.on('close', function() {
-        console.log('File saved successfully.');
+        //console.log('File Stream Closed in file_operations.js file');
      });
 }
 
-const copyFromTextToDocxDir = (excelPaths, companyName ) => {
+const saveADocxVersion = (excelPaths, companyName ) => {
     readFile(excelPaths.TXT_DIR, 'utf-8')
     .then(textFile => {
         saveAsDocx(textFile, excelPaths.DOCX_DIR, companyName)
@@ -37,12 +33,12 @@ const copyFromTextToDocxDir = (excelPaths, companyName ) => {
 }
 
 const alreadyApplied = async companyApplying => {
-    const directory = "./allTxt";
+    const TXT_DIRECTORY_PATH = "./allTxt";
     let isAlreadyAppliedFor = false;
 
     try {
         const files = await new Promise((resolve, reject) => {
-            readdir(directory, (err, files) => {
+            readdir(TXT_DIRECTORY_PATH, (err, files) => {
                 if (err) reject(err)
                 else resolve(files)
             });
@@ -63,12 +59,12 @@ const alreadyApplied = async companyApplying => {
 
 const writeAndSaveCoverLetter = async (excelPaths, text, companyName) => {
     if (await alreadyApplied(companyName)){
-        console.log("Company was already applied for")
+            console.log("Company was already applied for") 
     } else {
-        await writeToAFile(excelPaths.TXT_DIR, text)
-        //await copyFromTextToDocxDir(excelPaths, companyName)
-        await updateDB(companyName)
-        getOccurrence()
+        await writeToATxtFile(excelPaths.TXT_DIR, text)
+        await saveADocxVersion(excelPaths, companyName)
+        await addApplicationToDB(companyName)
+        printOccurence()
     }    
 }
 

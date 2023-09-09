@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const DB_PATH = "/Users/dajveechols/remoteSrc/node.js/dynamic-cover-letter/db/DB.txt";
 
-const updateDB = async (nameOfCompany) => {
+const addApplicationToDB = async (nameOfCompany) => {
 
   try {
     const json = await fs.promises.readFile(DB_PATH, 'utf-8');
@@ -31,21 +31,20 @@ const updateDB = async (nameOfCompany) => {
     const updatedJsonData = JSON.stringify(dbJson, null, 2);
 
     await fs.promises.writeFile(DB_PATH, updatedJsonData);
-
-    console.log('Database updated successfully.');
   } catch (err) {
     console.error(err.message);
   }
 };
 
-const getOccurrence = async () => {
+const printOccurence = async () => {
   try {
     const response = await fs.promises.readFile(DB_PATH, 'utf-8');
     const json = JSON.parse(response)
-    return json[json.length - -1].dailyStats.applicationAmount;
+    const applicationAmount = json[json.length - 1].dailyStats.applicationAmount
+    console.log("You're at " + applicationAmount + " today");
   } catch (error) {
     console.log(error.message)
   }
 }
 
-module.exports = { updateDB, getOccurrence }
+module.exports = { addApplicationToDB, printOccurence }

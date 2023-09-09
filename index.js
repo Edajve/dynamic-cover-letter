@@ -4,7 +4,7 @@ const { formatDate } = require('./helpers')
 const { writeAndSaveCoverLetter } = require('./file_operations');
 
 const template = {
-    companyName: "%Semantic",
+    companyName: "%trgj;lj;jw",
     positionTitle: "cheater",
     recipientsJobTitle: "HR Department",
     fullName: "Dajve Echols",
@@ -22,7 +22,7 @@ const template = {
 
 const excelPaths = {
     TXT_DIR: `/Users/dajveechols/remoteSrc/node.js/dynamic-cover-letter/allTxt/cover-letter_.txt`,
-    DOCX_DIR: '/Users/dajveechols/remoteSrc/node.js/dynamic-cover-letter/all_cover_letters'
+    DOCX_DIR: '/Users/dajveechols/remoteSrc/node.js/dynamic-cover-letter/docxFiles'
 }
 
 let text = coverMaker(template);
