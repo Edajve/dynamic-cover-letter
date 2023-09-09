@@ -47,4 +47,23 @@ const printOccurence = async () => {
   }
 }
 
-module.exports = { addApplicationToDB, printOccurence }
+const clearDb = async () => {
+  const newObject = 
+  [
+    {
+      today: formatDate(),
+      dailyStats: {
+        applicationAmount: 1,
+        applications: []
+      }
+    }
+  ];
+  await fs.promises.writeFile(DB_PATH, JSON.stringify(newObject));
+}
+
+const clearTestCompanies = async () => {
+  //all test companies will start with '%'
+
+}
+
+module.exports = { addApplicationToDB, printOccurence, clearDb }

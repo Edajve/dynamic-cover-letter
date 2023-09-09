@@ -1,10 +1,11 @@
 const coverMaker = require('./cover_creator')
 const { localSecrets } = require('./secrets/ppi')
 const { formatDate } = require('./helpers')
+const { clearDb } = require('./db_Operations')
 const { writeAndSaveCoverLetter } = require('./file_operations');
 
 const template = {
-    companyName: "%ABC company",
+    companyName: "%ABC companyxxded",
     positionTitle: "Software Engineer",
     recipientsJobTitle: "HR Department",
     fullName: "Dajve Echols",
@@ -25,6 +26,7 @@ const excelPaths = {
     DOCX_DIR: `${__dirname}/docxFiles`
 }
 
+//clearDb()  -> uncomment when you want to clear DB.txt
 let text = coverMaker(template);
 writeAndSaveCoverLetter(excelPaths, text, template.companyName);
 
