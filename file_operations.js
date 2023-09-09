@@ -15,7 +15,7 @@ const saveAsDocx = (text, pathObject, companyName) => {
      paragraph.addText(text);
  
      const fileName = `${companyName}-cover-letter.docx`;
-     const outputPath = `/Users/dajveechols/remoteSrc/node.js/dynamic-cover-letter/docxFiles/${fileName}`;
+     const outputPath = `${__dirname}/docxFiles/${fileName}`;
      const outputStream = createWriteStream(outputPath);
 
      docx.generate(outputStream);

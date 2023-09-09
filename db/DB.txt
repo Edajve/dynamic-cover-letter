@@ -42,10 +42,26 @@
   {
     "today": "September 08, 2023",
     "dailyStats": {
-      "applicationAmount": 2,
+      "applicationAmount": 18,
       "applications": [
         "%new",
-        "%Semantic"
+        "%Semantic",
+        "%Rudeee",
+        "%Rudee",
+        "%Rude",
+        "%It'sLikeCivilizedWar",
+        "%ItsLikeCivilizedWar",
+        "%save here",
+        "%try now",
+        "%try nodfaw",
+        "%try nodfaadsw",
+        "%try nodfaadw",
+        "%try nofaadw",
+        "%try nfaadw",
+        "%try faadw",
+        "%try   faadw",
+        "%try  faadw",
+        "%trgj;lj;jw"
       ]
     }
   }

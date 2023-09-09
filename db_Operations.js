@@ -1,7 +1,7 @@
 const { formatDate } = require('./helpers')
 const fs = require('fs');
 
-const DB_PATH = "/Users/dajveechols/remoteSrc/node.js/dynamic-cover-letter/db/DB.txt";
+const DB_PATH = `${__dirname}/db/DB.txt`;
 
 const addApplicationToDB = async (nameOfCompany) => {
 
